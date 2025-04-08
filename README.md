@@ -31,4 +31,19 @@ This order is crucial because:
 
 - Merging must happen before splitting to avoid conflicts  
 - Repeating needs to happen after splitting to handle new dimensions  
-- Transposing is done last to ensure all dimensions are in their final form  
+- Transposing is done last to ensure all dimensions are in their final form
+
+  ## Usage Example
+
+```python
+import numpy as np
+
+# Example tensor
+tensor = np.random.rand(32, 64, 64, 3)  # (batch, height, width, channels)
+
+# Rearrange using pattern
+result = rearrange(tensor, "b h w c -> b c h w")
+# Result shape: (32, 3, 64, 64)
+```
+
+
